@@ -1,11 +1,16 @@
+;文件保存默认编码格式
 (prefer-coding-system 'chinese-iso-8bit)
 ;(prefer-coding-system 'utf-8)
 
+;不产生备份文件
 (setq make-backup-files nil)
+
+;不产生临时文件
+;(setq-default make-backup-files nil)
+
 (put 'narrow-to-page 'disabled nil)
 
 ;(global-set-key [C-M-S-v] 'scroll-other-window-down)
-
 (defun scroll-other-window-up ()
   "Scroll the other window one line up."
   (interactive)
@@ -19,13 +24,28 @@
 (global-set-key [C-M-S-up] 'scroll-other-window-up)
 (global-set-key [C-M-S-down] 'scroll-other-window-down)
 
-(global-linum-mode t)
-(setq linum-format "%4d |")
+;自动显示显示行号
+;(global-linum-mode t)
+;(setq linum-format "%4d |")
+
+; tab 改为插入空格
+(setq-default indent-tabs-mode nil)
+
+; c c++ 缩进4个空格
+(setq c-basic-offset 4)
+(setq tab-width 4)
+
+;没有这个 { } 就会瞎搞
+;(setq c-default-style "linux")
+;(setq default-tab-width 4)
+
+;高亮光标所在行
+;(global-hl-line-mode 1)
 
 ; set gdb multi-windows when open
 (setq gdb-many-windows t)
 
-;;;; customize the gdb multi-windows
+; customize the gdb multi-windows
 (defadvice gdb-setup-windows (after my-setup-gdb-windows activate)
  "my gdb UI"
  (gdb-get-buffer-create 'gdb-stack-buffer)
