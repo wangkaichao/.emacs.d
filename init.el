@@ -73,3 +73,26 @@
     (gdb-set-window-buffer (gdb-get-buffer-create 'gdb-inferior-io) nil win3))
   (select-window win0)
  ))
+
+;evil 
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
+
+;remove default evil-toggle-key C-z, manually setup later
+(setq evil-toggle-key "")
+;don't bind [tab] to evil-jump-forward
+(setq evil-want-C-i-jump nil)   
+;remove all keybindings from insert-state keymap, use emacs-state when editing
+(setcdr evil-insert-state-map nil)
+
+;ESC to switch back normal-state
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+;TAB to indent in normal-state
+(define-key evil-normal-state-map (kbd "TAB") 'indent-for-tab-command)
+;Use j/k to move one visual line insted of gj/gk
+(define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+(define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+(define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+
