@@ -118,5 +118,10 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; 
 (load "~/.emacs.d/site-lisp/ycmd_cpp.el")
 
+(defun list-funcs (arg)
+  "List functions in buffer."
+  (interactive "p")
+  (list-matching-lines "^[A-Za-z0-9_]+[ ]+[A-Za-z0-9_<>: ]*[\(]"))
