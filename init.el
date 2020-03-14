@@ -118,5 +118,5 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load "~/.emacs.d/auto-save-list/ycmd_cpp.el")
+(load "~/.emacs.d/site-lisp/ycmd_cpp.el")
 

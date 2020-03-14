@@ -8,11 +8,11 @@
 (add-hook 'c++-mode-hook 'ycmd-mode)
 
 ;;;; Specify how to run the server
-(set-variable 'ycmd-server-command '("/usr/bin/python3" "/opt/source/3rd/ycmd/ycmd"))
+(set-variable 'ycmd-server-command '("python3" "/Users/wangkaichao/work/3rd/ycmd/ycmd"))
 
 ;;;; Specify a global emacs configuration
-(set-variable 'ycmd-global-config "/opt/source/3rd/ycmd/ycmd/examples/.ycm_extra_conf.py")
-(set-variable 'ycmd-extra-conf-whitelist '("/opt/source/work/wkc01/project/*"))
+(set-variable 'ycmd-global-config "/Users/wangkaichao/work/3rd/ycmd/examples/.ycm_extra_conf.py")
+(set-variable 'ycmd-extra-conf-whitelist '("/Users/wangkaichao/work/wkc01/project/*"))
 
 ;;;; Completion framework
 (require 'company-ycmd)
